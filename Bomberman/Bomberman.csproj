@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="0.png" />
+    <None Remove="data\block\0.png" />
+    <None Remove="data\bomb\0.png" />
+    <None Remove="data\bomb\1.png" />
+    <None Remove="data\bomb\3.png" />
+    <None Remove="data\bomb\fire\0.png" />
+    <None Remove="data\bomb\fire\00.png" />
+    <None Remove="data\bomb\fire\01.png" />
+    <None Remove="data\bomb\fire\02.png" />
+    <None Remove="data\bomb\fire\03.png" />
+    <None Remove="data\bomb\fire\1.png" />
+    <None Remove="data\bomb\fire\2.png" />
+    <None Remove="data\bomb\fire\3.png" />
+    <None Remove="data\brick\0.png" />
+    <None Remove="data\enemy\Valcom\dead\0.png" />
+    <None Remove="data\enemy\Valcom\dead\1.png" />
+    <None Remove="data\enemy\Valcom\dead\2.png" />
+    <None Remove="data\enemy\Valcom\dead\3.png" />
+    <None Remove="data\enemy\Valcom\move\0.png" />
+    <None Remove="data\enemy\Valcom\move\1.png" />
+    <None Remove="data\enemy\Valcom\move\2.png" />
+    <None Remove="data\player\move!Y\0.png" />
+    <None Remove="data\player\move!Y\1.png" />
+    <None Remove="data\player\move!Y\2.png" />
+    <None Remove="data\player\moveX\0.png" />
+    <None Remove="data\player\moveX\1.png" />
+    <None Remove="data\player\moveX\2.png" />
+    <None Remove="data\player\moveY\0.png" />
+    <None Remove="data\player\moveY\1.png" />
+    <None Remove="data\player\moveY\2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="data\block\0.png" />
+    <Resource Include="data\bomb\0.png" />
+    <Resource Include="data\bomb\1.png" />
+    <Resource Include="data\bomb\3.png" />
+    <Resource Include="data\bomb\fire\0.png" />
+    <Resource Include="data\bomb\fire\00.png" />
+    <Resource Include="data\bomb\fire\01.png" />
+    <Resource Include="data\bomb\fire\02.png" />
+    <Resource Include="data\bomb\fire\03.png" />
+    <Resource Include="data\bomb\fire\1.png" />
+    <Resource Include="data\bomb\fire\2.png" />
+    <Resource Include="data\bomb\fire\3.png" />
+    <Resource Include="data\brick\0.png" />
+    <Resource Include="data\enemy\Valcom\dead\0.png" />
+    <Resource Include="data\enemy\Valcom\dead\1.png" />
+    <Resource Include="data\enemy\Valcom\dead\2.png" />
+    <Resource Include="data\enemy\Valcom\dead\3.png" />
+    <Resource Include="data\enemy\Valcom\move\0.png" />
+    <Resource Include="data\enemy\Valcom\move\1.png" />
+    <Resource Include="data\enemy\Valcom\move\2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="0.png" />
+    <Resource Include="data\player\move!Y\0.png" />
+    <Resource Include="data\player\move!Y\1.png" />
+    <Resource Include="data\player\move!Y\2.png" />
+    <Resource Include="data\player\moveX\0.png" />
+    <Resource Include="data\player\moveX\1.png" />
+    <Resource Include="data\player\moveX\2.png" />
+    <Resource Include="data\player\moveY\0.png" />
+    <Resource Include="data\player\moveY\1.png" />
+    <Resource Include="data\player\moveY\2.png" />
+  </ItemGroup>
+
+</Project>
