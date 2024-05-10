@@ -29,6 +29,14 @@
     <None Remove="data\enemy\Valcom\move\0.png" />
     <None Remove="data\enemy\Valcom\move\1.png" />
     <None Remove="data\enemy\Valcom\move\2.png" />
+    <None Remove="data\player\dead\0.png" />
+    <None Remove="data\player\dead\1.png" />
+    <None Remove="data\player\dead\2.png" />
+    <None Remove="data\player\dead\3.png" />
+    <None Remove="data\player\dead\4.png" />
+    <None Remove="data\player\dead\5.png" />
+    <None Remove="data\player\dead\6.png" />
+    <None Remove="data\player\dead\7.png" />
     <None Remove="data\player\move!Y\0.png" />
     <None Remove="data\player\move!Y\1.png" />
     <None Remove="data\player\move!Y\2.png" />
@@ -61,6 +69,14 @@
     <Resource Include="data\enemy\Valcom\move\0.png" />
     <Resource Include="data\enemy\Valcom\move\1.png" />
     <Resource Include="data\enemy\Valcom\move\2.png" />
+    <Resource Include="data\player\dead\0.png" />
+    <Resource Include="data\player\dead\1.png" />
+    <Resource Include="data\player\dead\2.png" />
+    <Resource Include="data\player\dead\3.png" />
+    <Resource Include="data\player\dead\4.png" />
+    <Resource Include="data\player\dead\5.png" />
+    <Resource Include="data\player\dead\6.png" />
+    <Resource Include="data\player\dead\7.png" />
   </ItemGroup>
 
   <ItemGroup>

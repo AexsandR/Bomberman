@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
+
 namespace Bomberman.model
 {
     public class BoardGame
@@ -21,7 +22,7 @@ namespace Bomberman.model
 
         private char[][] map = {
             "###############################".ToCharArray(),
-            "#0==                          #".ToCharArray(),
+            "#===                          #".ToCharArray(),
             "#=# # # # # # # # # # # # # # #".ToCharArray(),
             "#=                            #".ToCharArray(),
             "# # # # # # # # # # # # # # # #".ToCharArray(),
@@ -30,8 +31,8 @@ namespace Bomberman.model
             "#                             #".ToCharArray(),
             "# # # # # # # # # # # # # # # #".ToCharArray(),
             "#                             #".ToCharArray(),
-            "# # # # # # # # # # # # # # # #".ToCharArray(),
-            "#                             #".ToCharArray(),
+            "# #=# # # # # # # # # # # # # #".ToCharArray(),
+            "# =0=                         #".ToCharArray(),
             "###############################".ToCharArray()
         };
         public char[][] Map { get { return map; } }
@@ -43,10 +44,8 @@ namespace Bomberman.model
             SpawnBrick(numberBrics);
             SpawnEnemy(6);
         }
-        //public int[] GetCell(double left, double top, double cellSize)
-        //{
-        //    double x = 0;
-        //}
+
+
         private int CountFreeCell()
         {
             int count = 0;

@@ -19,27 +19,26 @@ namespace Bomberman.model
         private double speedAnimation = 0.1;
         private string[] diractions = { "up", "down", "left", "right" };
         private int timeChangeDiraction = (new Random()).Next(5,15);
-        private int cellSize;
         private string? newDiractions = null;
         public override double Speed { get; set; } = 1;
         public override double Left { get; set; }
         public override double Top { get; set; }
         public override double Right { get; set; }
         public override double Bottom { get; set; }
+        public override bool Alive { get; set; } = true;
 
         public override string Diraction { get; set; } = "left";
-        public Enemy (double left, double top, double right, double bottom, int cellSize)
+        public Enemy (double left, double top, double right, double bottom)
         {
             Left = left;
             Right = right;
             Top = top;
             Bottom = bottom;
             lastChangeDiraction = DateTime.Now;
-            this.cellSize = cellSize;
         }
         public override bool CheckIntersection(double left, double top, bool enemy = false)
         {
-            if(Math.Abs(left - Left) < cellSize && Math.Abs(Top - top) < cellSize)
+            if(Math.Abs(left - Left) < Setting.CellSize && Math.Abs(Top - top) < Setting.CellSize)
             {
                 int index = Array.IndexOf(diractions, Diraction);
                 if (index % 2 == 1)
@@ -70,13 +69,13 @@ namespace Bomberman.model
         {
             if ((DateTime.Now - lastChangeDiraction).Seconds >= timeChangeDiraction)
             {
-                if (Left % cellSize <= 0.2 && Top % cellSize <= 0.2)
+                if (Left % Setting.CellSize <= 0.2 && Top % Setting.CellSize <= 0.2)
                 {
                     if(newDiractions is null)
                         newDiractions = diractions[rdn.Next(diractions.Length)];
-                    Left = (int)Left / cellSize * cellSize;
-                    Top = (int)Top / cellSize * cellSize;
-                    if(CheckFreeCell(map, (int)Left / cellSize, (int)Top / cellSize, newDiractions))
+                    Left = (int)Left / Setting.CellSize * Setting.CellSize;
+                    Top = (int)Top / Setting.CellSize * Setting.CellSize;
+                    if(CheckFreeCell(map, (int)Left / Setting.CellSize, (int)Top / Setting.CellSize, newDiractions))
                     {
                         Diraction = newDiractions;
                         newDiractions = null;
@@ -88,7 +87,7 @@ namespace Bomberman.model
                 }
             }
         }
-        public override void Dead()
+        public override string Dead()
         {
             throw new NotImplementedException();
         }

@@ -16,14 +16,17 @@ namespace Bomberman.model.Base
         public abstract double Bottom { get; set; }
         public abstract double Left { get; set; }
         public abstract double Right { get; set; }
+        public abstract bool Alive { get; set; }
         public abstract string Diraction { get; set; }
         public abstract double Speed { get; set; }
-        public abstract void Dead();
+        public abstract string Dead();
         public abstract string Update();
         public abstract bool CheckIntersection(double left, double top, bool enemy = false);
         public void move()
         {
-
+            if (!Alive)
+                return;
+            
             if (Diraction == "up")
             { 
                 Top -= Speed;
