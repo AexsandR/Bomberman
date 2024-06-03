@@ -12,7 +12,7 @@
     <None Remove="data\block\0.png" />
     <None Remove="data\bomb\0.png" />
     <None Remove="data\bomb\1.png" />
-    <None Remove="data\bomb\3.png" />
+    <None Remove="data\bomb\2.png" />
     <None Remove="data\bomb\fire\0.png" />
     <None Remove="data\bomb\fire\00.png" />
     <None Remove="data\bomb\fire\01.png" />
@@ -22,6 +22,12 @@
     <None Remove="data\bomb\fire\2.png" />
     <None Remove="data\bomb\fire\3.png" />
     <None Remove="data\brick\0.png" />
+    <None Remove="data\brick\1.png" />
+    <None Remove="data\brick\2.png" />
+    <None Remove="data\brick\3.png" />
+    <None Remove="data\brick\4.png" />
+    <None Remove="data\brick\5.png" />
+    <None Remove="data\brick\6.png" />
     <None Remove="data\enemy\Valcom\dead\0.png" />
     <None Remove="data\enemy\Valcom\dead\1.png" />
     <None Remove="data\enemy\Valcom\dead\2.png" />
@@ -49,10 +55,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="data\brick\1.png" />
+    <Resource Include="data\brick\2.png" />
+    <Resource Include="data\brick\3.png" />
+    <Resource Include="data\brick\4.png" />
+    <Resource Include="data\brick\5.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="data\block\0.png" />
     <Resource Include="data\bomb\0.png" />
     <Resource Include="data\bomb\1.png" />
-    <Resource Include="data\bomb\3.png" />
+    <Resource Include="data\bomb\2.png" />
     <Resource Include="data\bomb\fire\0.png" />
     <Resource Include="data\bomb\fire\00.png" />
     <Resource Include="data\bomb\fire\01.png" />
@@ -62,6 +76,7 @@
     <Resource Include="data\bomb\fire\2.png" />
     <Resource Include="data\bomb\fire\3.png" />
     <Resource Include="data\brick\0.png" />
+    <Resource Include="data\brick\6.png" />
     <Resource Include="data\enemy\Valcom\dead\0.png" />
     <Resource Include="data\enemy\Valcom\dead\1.png" />
     <Resource Include="data\enemy\Valcom\dead\2.png" />
@@ -89,6 +104,10 @@
     <Resource Include="data\player\moveY\0.png" />
     <Resource Include="data\player\moveY\1.png" />
     <Resource Include="data\player\moveY\2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="data\sounds\" />
   </ItemGroup>
 
 </Project>

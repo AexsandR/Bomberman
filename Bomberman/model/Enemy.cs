@@ -25,32 +25,48 @@ namespace Bomberman.model
         public override double Top { get; set; }
         public override double Right { get; set; }
         public override double Bottom { get; set; }
-        public override bool Alive { get; set; } = true;
-
+        private bool alive = true;
+        private bool endDead = false;
+        public bool EndDead => endDead;
+        public override bool Alive
+        {
+            get { return alive; }
+            set
+            {
+                if (value)
+                {
+                    numberImg = 0;
+                    speedAnimation = 0.1;
+                }
+                else
+                    if (value != alive)
+                {
+                    speedAnimation = 0.05;
+                    numberImg = 0;
+                }
+                alive = value;
+            }
+        }
+        public override double SizeSmallHitBox => Setting.SizeSmallHitBoxEnemy;
         public override string Diraction { get; set; } = "left";
         public Enemy (double left, double top, double right, double bottom)
         {
+            alive = true;
             Left = left;
             Right = right;
             Top = top;
             Bottom = bottom;
             lastChangeDiraction = DateTime.Now;
         }
-        public override bool CheckIntersection(double left, double top, bool enemy = false)
+        public void SwapDiraction()
         {
-            if(Math.Abs(left - Left) < Setting.CellSize && Math.Abs(Top - top) < Setting.CellSize)
-            {
-                int index = Array.IndexOf(diractions, Diraction);
-                if (index % 2 == 1)
-                    index -= 2;
+            int index = Array.IndexOf(diractions, Diraction);
+            if (index % 2 == 1)
+                index -= 2;
+            Diraction = diractions[++index];
 
-                Diraction = diractions[++index];
-                return true;
-            }
-            return false;
         }
-
-        private bool CheckFreeCell(char[][] map, int x, int y, string diraction)
+        public bool CheckFreeCell(char[][] map, int x, int y, string diraction)
         {
             if (diraction == "up" || diraction == "down") 
             { 
@@ -62,14 +78,13 @@ namespace Bomberman.model
                 if (map[y][x + 1] != '#' && map[y][x + 1] != '@' || map[y][x - 1] != '#' && map[y][x - 1] != '@')
                     return true;
             }
-
             return false;
         }
         public void SwapRdnDiraction(char[][] map)
         {
             if ((DateTime.Now - lastChangeDiraction).Seconds >= timeChangeDiraction)
             {
-                if (Left % Setting.CellSize <= 0.2 && Top % Setting.CellSize <= 0.2)
+                if (Left % Setting.CellSize <= 1 && Top % Setting.CellSize <= 1)
                 {
                     if(newDiractions is null)
                         newDiractions = diractions[rdn.Next(diractions.Length)];
@@ -82,22 +97,29 @@ namespace Bomberman.model
                         lastChangeDiraction = DateTime.Now;
                         timeChangeDiraction = rdn.Next(5, 15);
                     }
-
-                    
                 }
             }
         }
         public override string Dead()
         {
-            throw new NotImplementedException();
+            if (numberImg > 4)
+            {
+                endDead = true;
+                return path;
+            }
+            path = $"../data/enemy/Valcom/dead/{(int)numberImg}.png";
+            numberImg += speedAnimation;
+            return path;
         }
-
+   
         public override string Update()
         {
+            if (!Alive)
+                return path;
             path = "../data/enemy/Valcom/move/";
             path += $"{(int)numberImg}.png";
             numberImg += speedAnimation;
-            numberImg %= 2;
+            numberImg %= 3;
             return path;
         }
     }

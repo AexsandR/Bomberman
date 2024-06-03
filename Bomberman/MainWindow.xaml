@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:Bomberman"
         mc:Ignorable="d"
         Background="#009600"
-        Title="MainWindow" Height="605" Width="640" WindowStyle="ToolWindow" KeyDown="MovePlayer" >
+        Title="MainWindow" Height="605" Width="640" WindowStyle="ToolWindow" KeyDown="PressKey" >
     <Grid>
         <Rectangle  Width="800" Height="100" Fill="#adadad" Margin="0,0,0,484" Panel.ZIndex="-2"/>
 
         <Grid x:Name="camera" Margin="0,80,0,-13" Height="500" Width="800"/>
+
     </Grid>
 
 </Window>

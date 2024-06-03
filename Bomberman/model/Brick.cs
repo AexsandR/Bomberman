@@ -7,12 +7,21 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace Bomberman.model
-{ 
+{
     public class Brick
     {
-        public void Break()
+        private string path;
+        private double numberImg = 1;
+        private double speedAnimation = 0.3;
+        public bool ProcessDestruction { get; set; } = false;
+        public string Update()
         {
-
+            if (numberImg >  8)
+                return path;
+            path = $"../data/brick/";
+            path += $"{(int)numberImg}.png";
+            numberImg += speedAnimation;
+            return path;
         }
     }
 }

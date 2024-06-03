@@ -20,32 +20,29 @@ namespace Bomberman.model
          * = - зона чтоб не появлись мобы и разрушаемые стены
          */
 
-        private char[][] map = {
-            "###############################".ToCharArray(),
-            "#===                          #".ToCharArray(),
-            "#=# # # # # # # # # # # # # # #".ToCharArray(),
-            "#=                            #".ToCharArray(),
-            "# # # # # # # # # # # # # # # #".ToCharArray(),
-            "#                             #".ToCharArray(),
-            "# # # # # # # # # # # # # # # #".ToCharArray(),
-            "#                             #".ToCharArray(),
-            "# # # # # # # # # # # # # # # #".ToCharArray(),
-            "#                             #".ToCharArray(),
-            "# #=# # # # # # # # # # # # # #".ToCharArray(),
-            "# =0=                         #".ToCharArray(),
-            "###############################".ToCharArray()
-        };
+        private char[][] map;
         public char[][] Map { get { return map; } }
+        public int level = 1;
 
         private double percentBrick = 0.3;
         public BoardGame()
         {
+            CreatePole();
+        }
+        /// <summary>
+        /// создаёт поле с разрушаемыми блоками и врагами
+        /// </summary>
+        public void CreatePole()
+        {
+            Setting.CopyMapPole(out map);
             int numberBrics = (int)(CountFreeCell() * percentBrick);
             SpawnBrick(numberBrics);
-            SpawnEnemy(6);
+            SpawnEnemy(8);
         }
-
-
+        /// <summary>
+        /// метод считает кол-во свободных клеток
+        /// </summary>
+        /// <returns></returns>
         private int CountFreeCell()
         {
             int count = 0;
@@ -55,6 +52,10 @@ namespace Bomberman.model
             }
             return count;
         }
+        /// <summary>
+        /// метод распределения разрушаемых блоков
+        /// </summary>
+        /// <param name="numberBrics"></param>
         private void SpawnBrick(int numberBrics)
         {
             var rdn = new Random();
@@ -68,6 +69,10 @@ namespace Bomberman.model
                 numberBrics--;
             }
         }
+        /// <summary>
+        /// метод распределения врагов
+        /// </summary>
+        /// <param name="numberEnemy"></param>
         private void SpawnEnemy(int numberEnemy)
         {
             var rdn = new Random();
@@ -81,20 +86,28 @@ namespace Bomberman.model
                 numberEnemy--;
             }
         }
-        
-        private char[] Replace(char[] str, int num, char oldSymbol, char newSymbol)
+        /// <summary>
+        /// метод замены
+        /// </summary>
+        /// <param name="arraySymbols">массив символов</param>
+        /// <param name="num"> кол-во замен</param>
+        /// <param name="oldSymbol"> старый символ</param>
+        /// <param name="newSymbol"> новый символ</param>
+        /// <returns></returns>
+
+        private char[] Replace(char[] arraySymbols, int num, char oldSymbol, char newSymbol)
         {
-            for (int i = 0; i < str.Length; i++)
+            for (int i = 0; i < arraySymbols.Length; i++)
             {
-                if (str[i] == oldSymbol)
+                if (arraySymbols[i] == oldSymbol)
                     num--;
                 if(num == 0)
                 {
-                    str[i] = newSymbol;
-                    return str;
+                    arraySymbols[i] = newSymbol;
+                    return arraySymbols;
                 }
             }
-            return str;
+            return arraySymbols;
         }
     }
 }
