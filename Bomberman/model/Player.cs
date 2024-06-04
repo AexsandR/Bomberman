@@ -54,7 +54,8 @@ namespace Bomberman.model
         }
         public override string Dead()
         {
-            if (numberImg > 8) { 
+            if (numberImg > 8) {
+                Death = true;
                 return path; }
             path = $"../data/player/dead/{(int)numberImg}.png";
             numberImg += speedAnimation;

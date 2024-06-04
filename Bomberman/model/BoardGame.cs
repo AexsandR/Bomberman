@@ -27,7 +27,6 @@ namespace Bomberman.model
         private double percentBrick = 0.3;
         public BoardGame()
         {
-            CreatePole();
         }
         /// <summary>
         /// создаёт поле с разрушаемыми блоками и врагами

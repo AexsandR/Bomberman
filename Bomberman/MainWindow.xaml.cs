@@ -49,19 +49,22 @@ namespace Bomberman
         public MainWindow()
         {
             InitializeComponent();
+            StartGame();
+
+        }
+        private void StartGame()
+        {
+            pole.CreatePole();
             CreatePole();
             tick.Tick += new EventHandler(Update);
             tick.Interval = new TimeSpan(0, 0, 0, 0, Setting.Tick);
             tick.Start();
-
         }
         /// <summary>
         /// создание поля
         /// </summary>
         private void CreatePole()
         {
-
-            
             for(int y = 0; y < pole.Map.Length; y++)
             {
                 for(int x = 0; x < pole.Map[y].Length; x++)
@@ -207,6 +210,13 @@ namespace Bomberman
                 if (!fire.Key.FireOut() && player.CheckIntersection(fire.Value.Margin.Left, fire.Value.Margin.Top, true))
                     player.Alive = false;
             }
+            if (player.Death)
+            {
+                tick.Stop();
+                MessageBox.Show(QuotationBook.Citation);
+                (new Menu()).Show();
+                Close();
+            }
         }
         /// <summary>
         /// логика передвижения и анимации
@@ -252,6 +262,7 @@ namespace Bomberman
                     enemy.Value.Source = new BitmapImage(new Uri(enemy.Key.Dead(), UriKind.Relative));
                     if (enemy.Key.EndDead)
                     {
+                        score.Content = (int.Parse(score.Content.ToString()) + enemy.Key.Cost).ToString();
                         camera.Children.Remove(enemy.Value);
                         enemyes.Remove(enemy.Key);
                     }
@@ -295,13 +306,28 @@ namespace Bomberman
                 }
                 else if (enemyes.Count == 0 && brick.Key.Exit && player.CheckIntersection(brick.Value.Margin.Left, brick.Value.Margin.Top))
                 {
-                    MessageBox.Show("next level");
+                    MessageBox.Show("вы переходите на следующий уровень");
+                    Clear();
+                    StartGame();
+                    level.Content = int.Parse(level.Content.ToString()) + 1;
+                    return;
                 }
             }
 
             if (statusMoveCamera)
                 MoveCamera(player.Diraction);
             statusMoveCamera = true;
+        }
+        private void Clear()
+        {
+            bricks.Clear();
+            blocks.Clear();
+            bricksPos.Clear();
+            player = null;
+            camera.Children.Clear();
+            tick.Stop();
+            tick = new DispatcherTimer();
+
         }
         /// <summary>
         /// обрабатывет клавиши 
@@ -348,7 +374,7 @@ namespace Bomberman
             playerImg.Margin = new Thickness(player.Left, player.Top, player.Right, player.Bottom);
             foreach (var enemy in enemyes)
             {
-                if (enemy.Key.CheckIntersection(playerImg.Margin.Left, playerImg.Margin.Top))
+                if (enemy.Key.CheckIntersection(playerImg.Margin.Left, playerImg.Margin.Top, true))
                     return;
 
             }

@@ -22,6 +22,7 @@ namespace Bomberman.model.Base
         public abstract string Diraction { get; set; }
         public abstract double Speed { get; set; }
         public abstract double SizeSmallHitBox { get; }
+        public bool Death { get; set; } = false;
         public abstract string Dead();
         public abstract string Update();
         private void FixationCell()

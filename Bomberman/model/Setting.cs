@@ -9,7 +9,7 @@ namespace Bomberman.model
     static public class Setting
     {
         /*
-            константы для игры
+         * константы для игры
         */
         public const int CellSize = 39;
         public const int CellSection = 30;
@@ -21,6 +21,14 @@ namespace Bomberman.model
         public const int SizeSmallHitBoxPlayer = 10;
         public const int SizeSmallHitBoxEnemy = 20;
         private static char[][] map = {
+            /*
+             * 0 - игрок
+             * # - стена
+             * @ - кирпичи
+             * 1 - бомбы
+             * E - выход с уровня
+             * = - помеченная област, чтоб не появлялись мобы и кирпичи
+             */
             "###############################".ToCharArray(),
             "#0==                          #".ToCharArray(),
             "#=# # # # # # # # # # # # # # #".ToCharArray(),
@@ -44,7 +52,10 @@ namespace Bomberman.model
             array = new char[map.Length][];
             for(int i = 0; i < map.Length; i++)
             {
-                array[i] = map[i];
+                array[i] = new char[map[i].Length];
+                for (int j = 0; j < map[i].Length; j++)
+                    array[i][j] = map[i][j];
+
             }
         }
 

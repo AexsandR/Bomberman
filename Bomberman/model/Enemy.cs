@@ -25,6 +25,7 @@ namespace Bomberman.model
         public override double Top { get; set; }
         public override double Right { get; set; }
         public override double Bottom { get; set; }
+        public int Cost { get; set; } = 1000;
         private bool alive = true;
         private bool endDead = false;
         public bool EndDead => endDead;
