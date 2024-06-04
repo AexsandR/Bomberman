@@ -28,6 +28,7 @@
     <None Remove="data\brick\4.png" />
     <None Remove="data\brick\5.png" />
     <None Remove="data\brick\6.png" />
+    <None Remove="data\brick\exit.png" />
     <None Remove="data\enemy\Valcom\dead\0.png" />
     <None Remove="data\enemy\Valcom\dead\1.png" />
     <None Remove="data\enemy\Valcom\dead\2.png" />
@@ -77,6 +78,7 @@
     <Resource Include="data\bomb\fire\3.png" />
     <Resource Include="data\brick\0.png" />
     <Resource Include="data\brick\6.png" />
+    <Resource Include="data\brick\exit.png" />
     <Resource Include="data\enemy\Valcom\dead\0.png" />
     <Resource Include="data\enemy\Valcom\dead\1.png" />
     <Resource Include="data\enemy\Valcom\dead\2.png" />

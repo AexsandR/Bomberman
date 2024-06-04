@@ -13,12 +13,20 @@ namespace Bomberman.model
         private string path;
         private double numberImg = 1;
         private double speedAnimation = 0.3;
+        public bool WholeBrick { get; set; } = true;
+
+        public bool Exit { get; set; } = false;
         public bool ProcessDestruction { get; set; } = false;
         public string Update()
         {
-            if (numberImg >  8)
+            if (numberImg > 8)
+            {
+                if (Exit)
+                    return "../data/brick/exit.png";
                 return path;
-            path = $"../data/brick/";
+
+            }
+            path = "../data/brick/";
             path += $"{(int)numberImg}.png";
             numberImg += speedAnimation;
             return path;

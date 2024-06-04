@@ -34,10 +34,11 @@ namespace Bomberman.model
         /// </summary>
         public void CreatePole()
         {
+            var rdn = new Random();
             Setting.CopyMapPole(out map);
             int numberBrics = (int)(CountFreeCell() * percentBrick);
             SpawnBrick(numberBrics);
-            SpawnEnemy(8);
+            SpawnEnemy(rdn.Next(6,15));
         }
         /// <summary>
         /// метод считает кол-во свободных клеток
@@ -68,7 +69,12 @@ namespace Bomberman.model
                 map[y] = Replace(map[y], number, ' ', '@');
                 numberBrics--;
             }
+            
+            y = rdn.Next(1, map.Length - 1);
+            number = rdn.Next(1, map[y].Count(ch => ch == ' ') + 1);
+            map[y] = Replace(map[y], 1, ' ', 'E'); // кирпичик который прячет выход
         }
+
         /// <summary>
         /// метод распределения врагов
         /// </summary>

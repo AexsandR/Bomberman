@@ -10,7 +10,7 @@ namespace Bomberman.model
     {
         /*
             константы для игры
-         */
+        */
         public const int CellSize = 39;
         public const int CellSection = 30;
         public const int TimeBeforeFire = 3;

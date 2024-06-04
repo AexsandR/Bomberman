@@ -17,7 +17,7 @@ using Bomberman.model;
 using static System.Formats.Asn1.AsnWriter;
 
 
-namespace Bomberman.View
+namespace Bomberman
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -76,13 +76,19 @@ namespace Bomberman.View
                         Panel.SetZIndex(item, 3);
 
                     }
-                    if (pole.Map[y][x] == '@')
+                    if (pole.Map[y][x] == '@' || pole.Map[y][x] == 'E')
                     {
                         item.Source = new BitmapImage(new Uri("/data/brick/0.png", UriKind.Relative));
                         var brick = new Brick();
+                        if (pole.Map[y][x] == 'E')
+                        {
+                            brick.Exit = true;
+                            pole.Map[y][x] = '@';
+                        }
                         bricks.Add(brick, item);
                         Panel.SetZIndex(item, 3);
                         bricksPos.Add((x, y), brick);
+
                     }
                     if (pole.Map[y][x] == '0')
                     {
@@ -156,6 +162,13 @@ namespace Bomberman.View
                     fires.Remove(fire.Key);
                     foreach (var brick in bricksBreak)
                     {
+                        if (brick.Key.Exit)
+                        {
+                            brick.Key.WholeBrick = false;
+                            Panel.SetZIndex(brick.Value, 0);
+                            continue;
+
+                        }
                         camera.Children.Remove(brick.Value);
                         bricks.Remove(brick.Key);
                         bricksBreak.Remove(brick.Key);
@@ -215,9 +228,9 @@ namespace Bomberman.View
                         enemy.Key.SwapDiraction();
                     
                 }
-                foreach (var block in bricks)
+                foreach (var brick in bricks)
                 {
-                    if(enemy.Key.CheckIntersection(block.Value.Margin.Left, block.Value.Margin.Top))
+                    if((brick.Key.Exit != true || brick.Key.WholeBrick) && enemy.Key.CheckIntersection(brick.Value.Margin.Left, brick.Value.Margin.Top))
                         enemy.Key.SwapDiraction();
                 }
                 foreach(var fire in fires)
@@ -231,7 +244,8 @@ namespace Bomberman.View
 
                 }
                 if(!(bomb is null))
-                    if(enemy.Key.CheckIntersection(bombImg.Margin.Left, bombImg.Margin.Top)) enemy.Key.SwapDiraction();
+                    if(enemy.Key.CheckIntersection(bombImg.Margin.Left, bombImg.Margin.Top)) 
+                        enemy.Key.SwapDiraction();
                 enemy.Key.SwapRdnDiraction(pole.Map);
                 if (!enemy.Key.Alive)
                 {
@@ -273,10 +287,16 @@ namespace Bomberman.View
                 if (player.CheckIntersection(block.Margin.Left, block.Margin.Top))
                     statusMoveCamera = false;
             }
-            foreach (var bric in bricks)
+            foreach (var brick in bricks)
             {
-                if (player.CheckIntersection(bric.Value.Margin.Left, bric.Value.Margin.Top))
+                if ((brick.Key.Exit != true || brick.Key.WholeBrick) && player.CheckIntersection(brick.Value.Margin.Left, brick.Value.Margin.Top))
+                {
                     statusMoveCamera = false;
+                }
+                else if (enemyes.Count == 0 && brick.Key.Exit && player.CheckIntersection(brick.Value.Margin.Left, brick.Value.Margin.Top))
+                {
+                    MessageBox.Show("next level");
+                }
             }
 
             if (statusMoveCamera)
@@ -326,7 +346,12 @@ namespace Bomberman.View
             }
             player.PutBomb();
             playerImg.Margin = new Thickness(player.Left, player.Top, player.Right, player.Bottom);
-            
+            foreach (var enemy in enemyes)
+            {
+                if (enemy.Key.CheckIntersection(playerImg.Margin.Left, playerImg.Margin.Top))
+                    return;
+
+            }
             bomb = new Bomb();
             bombImg = new();
             bombImg.Source = new BitmapImage(new Uri(bomb.Update(), UriKind.Relative));

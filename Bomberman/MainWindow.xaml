@@ -1,4 +1,4 @@
-﻿<Window x:Class="Bomberman.View.MainWindow"
+﻿<Window x:Class="Bomberman.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bomberman"
         mc:Ignorable="d"
         Background="#009600"
-        Title="MainWindow" Height="605" Width="640" WindowStyle="ToolWindow" KeyDown="PressKey" >
+        Title="MainWindow" Height="605" Width="640" WindowStyle="ToolWindow" KeyDown="PressKey" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Rectangle  Width="800" Height="100" Fill="#adadad" Margin="0,0,0,484" Panel.ZIndex="-2"/>
 

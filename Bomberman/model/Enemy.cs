@@ -88,15 +88,18 @@ namespace Bomberman.model
                 {
                     if(newDiractions is null)
                         newDiractions = diractions[rdn.Next(diractions.Length)];
-                    Left = (int)Left / Setting.CellSize * Setting.CellSize;
-                    Top = (int)Top / Setting.CellSize * Setting.CellSize;
-                    if(CheckFreeCell(map, (int)Left / Setting.CellSize, (int)Top / Setting.CellSize, newDiractions))
+
+                    if (CheckFreeCell(map, (int)Left / Setting.CellSize, (int)Top / Setting.CellSize, newDiractions))
                     {
+                        Left = (int)Left / Setting.CellSize * Setting.CellSize;
+                        Top = (int)Top / Setting.CellSize * Setting.CellSize;
                         Diraction = newDiractions;
                         newDiractions = null;
+
                         lastChangeDiraction = DateTime.Now;
                         timeChangeDiraction = rdn.Next(5, 15);
                     }
+                    
                 }
             }
         }
