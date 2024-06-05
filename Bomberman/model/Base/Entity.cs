@@ -14,15 +14,15 @@ namespace Bomberman.model.Base
 
         private double posX;
         private double posY;
-        public abstract double Top { get;  set; }
-        public abstract double Bottom { get; set; }
-        public abstract double Left { get; set; }
-        public abstract double Right { get; set; }
+        public  double Top { get;  set; }
+        public  double Bottom { get; set; }
+        public  double Left { get; set; }
+        public  double Right { get; set; }
+        public  string Diraction { get; set; }
+        public  double Speed { get; set; }
         public abstract bool Alive { get; set; }
-        public abstract string Diraction { get; set; }
-        public abstract double Speed { get; set; }
-        public abstract double SizeSmallHitBox { get; }
         public bool Death { get; set; } = false;
+        public abstract double SizeSmallHitBox { get; }
         public abstract string Dead();
         public abstract string Update();
         private void FixationCell()

@@ -16,10 +16,6 @@ namespace Bomberman.model
         private string path;
         private double numberImg;
         private double speedAnimation;
-        public override double Speed { get; set; } = 4;
-        public override string Diraction { get; set; }
-        public override double Left { get; set; }
-        public override double Top { get; set; }
         private bool alive = true;
         public override bool Alive
         {
@@ -41,11 +37,10 @@ namespace Bomberman.model
             }
         }
         public override double SizeSmallHitBox => Setting.SizeSmallHitBoxPlayer;
-        public override double Right { get; set; }
-        public override double Bottom { get; set; }
         public Player() { }
         public Player(double left, double top, double right, double bottom)
         {
+            Speed = 4;
             Left = left;
             Right = right;
             Top = top;

@@ -20,11 +20,6 @@ namespace Bomberman.model
         private string[] diractions = { "up", "down", "left", "right" };
         private int timeChangeDiraction = (new Random()).Next(5,15);
         private string? newDiractions = null;
-        public override double Speed { get; set; } = 1;
-        public override double Left { get; set; }
-        public override double Top { get; set; }
-        public override double Right { get; set; }
-        public override double Bottom { get; set; }
         public int Cost { get; set; } = 1000;
         private bool alive = true;
         private bool endDead = false;
@@ -49,7 +44,6 @@ namespace Bomberman.model
             }
         }
         public override double SizeSmallHitBox => Setting.SizeSmallHitBoxEnemy;
-        public override string Diraction { get; set; } = "left";
         public Enemy (double left, double top, double right, double bottom)
         {
             alive = true;
@@ -57,6 +51,8 @@ namespace Bomberman.model
             Right = right;
             Top = top;
             Bottom = bottom;
+            Speed = 1;
+            Diraction = "left";
             lastChangeDiraction = DateTime.Now;
         }
         public void SwapDiraction()
