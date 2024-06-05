@@ -1,83 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="Bomberman.model.Base.Entity" Collapsed="true">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+  <Class Name="Bomberman.model.Base.Entity">
+    <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAQAAAAAAAAAAACAEAAQAAABAAAIAAQACgCAyAAGAAA=</HashCode>
+      <HashCode>IAQAAAAAAAAAAACAEAAQAAABAAAIAAQgCgCAyAAGAAA=</HashCode>
       <FileName>model\Base\Entity.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.model.BoardGame" Collapsed="true">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+  <Class Name="Bomberman.model.BoardGame">
+    <Position X="9" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAABAASAAAAgAAAAAAAAEAQAAAAAAAAAAQACA=</HashCode>
       <FileName>model\BoardGame.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.model.Bomb" Collapsed="true">
-    <Position X="10.5" Y="0.5" Width="1.5" />
+  <Class Name="Bomberman.model.Bomb">
+    <Position X="9" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAgAAAAAIAAAAAACAAAAAAAAAAAAAAEAABAAAAA=</HashCode>
       <FileName>model\Bomb.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.model.Brick" Collapsed="true">
-    <Position X="7" Y="1.5" Width="1.5" />
+  <Class Name="Bomberman.model.Brick">
+    <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAgAAAAAAAAAAAACAAAAAQAAAAAAIBEAAAAAAAA=</HashCode>
       <FileName>model\Brick.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.model.Enemy" Collapsed="true">
-    <Position X="2.25" Y="1.75" Width="1.5" />
+  <Class Name="Bomberman.model.Enemy">
+    <Position X="0.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAQAEEgAAAAAAAAAAAAaAAABRABIAAQCCgHACAACABA=</HashCode>
+      <HashCode>QAQAEEgAAAAAAAAAAAAaABABRABIAAQCCgHACAACABA=</HashCode>
       <FileName>model\Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.model.Fire" Collapsed="true">
-    <Position X="8.75" Y="1.5" Width="1.5" />
+  <Class Name="Bomberman.model.Fire">
+    <Position X="9" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAwAAAgAAIAAAAIAEAACAAgAAAAIAAAAAAEAAAAAAAA=</HashCode>
       <FileName>model\Fire.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.model.Player" Collapsed="true">
-    <Position X="4.5" Y="1.75" Width="1.5" />
+  <Class Name="Bomberman.model.Player">
+    <Position X="5.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAgAAAAAAAAAAAASAAABBAAIAAQACgGBCAACAAA=</HashCode>
       <FileName>model\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.model.Setting" Collapsed="true">
-    <Position X="8.75" Y="2.5" Width="1.5" />
+  <Class Name="Bomberman.model.Setting">
+    <Position X="7.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAMAAAAAAAAAIAAAAYIAAAAEAAAAAAAACAAACAQAA=</HashCode>
       <FileName>model\Setting.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.App" Collapsed="true">
-    <Position X="7" Y="0.5" Width="1.5" />
+  <Class Name="Bomberman.App">
+    <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bomberman.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="10.5" Y="1.5" Width="1.5" />
+  <Class Name="Bomberman.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAZABAARAAAAIAEAAAWCAAAAAQDIQAABBCAAoAkABBI=</HashCode>
+      <HashCode>AAZABAARAAAAIAEAAAWCAAAgAQDIQAABBCAAoAlABBI=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Bomberman.Menu" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7" Y="2.5" Width="1.5" />
+  <Class Name="Bomberman.Menu" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAIAAAAAAAAAAAAAoAAAAAAAAAA=</HashCode>
       <FileName>Menu.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Bomberman.model.QuotationBook">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>model\QuotationBook.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

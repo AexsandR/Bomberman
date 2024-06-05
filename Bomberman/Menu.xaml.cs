@@ -33,7 +33,7 @@ namespace Bomberman
 
         private void InformationСreator(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("работу сделал: Боровков АЛександр Владимирович группа 23-ИСбо-1а\n управление:\n W - вверх\n S - вниз\n A - вправо\n D - влево\n Z - вниз");
+            MessageBox.Show("работу сделал: Боровков Адександр Владимирович группа 23-ИСбо-1а\n управление:\n W - вверх\n S - вниз\n A - вправо\n D - влево\n L - поставить бомбу");
         }
 
         private void Exit(object sender, RoutedEventArgs e)

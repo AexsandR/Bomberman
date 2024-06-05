@@ -168,7 +168,7 @@ namespace Bomberman
                         if (brick.Key.Exit)
                         {
                             brick.Key.WholeBrick = false;
-                            Panel.SetZIndex(brick.Value, 0);
+                            Panel.SetZIndex(brick.Value, -1);
                             continue;
 
                         }
@@ -354,7 +354,7 @@ namespace Bomberman
                     player.Diraction = "right";
                     playerImg.FlowDirection = FlowDirection.RightToLeft;
                     break;
-                case Key.Z:
+                case Key.L:
                     CreateBomb();
                     return;
                 default: return;

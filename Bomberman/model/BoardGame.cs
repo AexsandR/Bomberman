@@ -38,6 +38,7 @@ namespace Bomberman.model
             int numberBrics = (int)(CountFreeCell() * percentBrick);
             SpawnBrick(numberBrics);
             SpawnEnemy(rdn.Next(6,15));
+            //SpawnEnemy(rdn.Next(0));
         }
         /// <summary>
         /// метод считает кол-во свободных клеток
