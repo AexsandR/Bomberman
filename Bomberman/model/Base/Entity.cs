@@ -23,14 +23,28 @@ namespace Bomberman.model.Base
         public abstract bool Alive { get; set; }
         public bool Death { get; set; } = false;
         public abstract double SizeSmallHitBox { get; }
+        /// <summary>
+        ///  метод обновления каритинок смерти
+        /// </summary>
+        /// <returns></returns>
         public abstract string Dead();
+        /// <summary>
+        /// метод который обновляет картинку у объекта
+        /// </summary>
+        /// <returns></returns>
         public abstract string Update();
+        /// <summary>
+        /// метод фиксирует положение объекта ровно в клетке по двум осям
+        /// </summary>
         private void FixationCell()
         {
             FixationY();
             FixationX();
 
         }
+        /// <summary>
+        /// метод, который фиксирует положеник объекта ровно в клетке по оси X
+        /// </summary>
         public void FixationX()
         {
             double leftPos0 = Math.Round(Left / Setting.CellSize) * Setting.CellSize;
@@ -45,6 +59,9 @@ namespace Bomberman.model.Base
             }
             Right = Setting.Right - Left;
         }
+        /// <summary>
+        /// метод, который фиксирует положеник обьекта ровно в клетке по оси Y
+        /// </summary>
         public void FixationY()
         {
             double TopPos0 = Math.Round(Top / Setting.CellSize) * Setting.CellSize;
@@ -59,6 +76,11 @@ namespace Bomberman.model.Base
             }
             Bottom = Setting.Bottom - Top;
         }
+        /// <summary>
+        /// фиксирует положение объекта в клетке. Используется при срезе клетки
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="top"></param>
         private void FixationCell(double left, double top)
         {
             switch (Diraction)
@@ -78,7 +100,7 @@ namespace Bomberman.model.Base
                     break;
                 case "left":
                 case "right":
-                    if (Top < top) // наша точка находиться выше чем обьекта которого мы задели
+                    if (Top < top) // наша точка находиться выше чем объекта которого мы задели
                     {
                         Bottom += Top - (top - Setting.CellSize);
                         Top -= Top - (top - Setting.CellSize);
@@ -91,6 +113,13 @@ namespace Bomberman.model.Base
                     break;
             }
         }
+        /// <summary>
+        /// проверка пересечения
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="top"></param>
+        /// <param name="smallHitBox"> маленький хитбокс</param>
+        /// <returns></returns>
         public  bool CheckIntersection(double left, double top, bool smallHitBox = false)
         {
             if (Math.Abs(left - Left) < Setting.CellSize && Math.Abs(Top - top) < Setting.CellSize)
@@ -111,7 +140,10 @@ namespace Bomberman.model.Base
             }
             return false;
         }
-        public void move()
+        /// <summary>
+        /// метод перещения
+        /// </summary>
+        public void Move()
         {
             if (!Alive)
                 return;

@@ -16,12 +16,20 @@ namespace Bomberman.model
         {
             createTimeBomb = DateTime.Now;
         }
+        /// <summary>
+        /// метод который проверяет начала ли бомба взрываться
+        /// </summary>
+        /// <returns></returns>
         public bool BombAtaka()
         {
             if ((DateTime.Now - createTimeBomb).Seconds >= Setting.TimeBeforeFire)
                 return true;
             return false;
         }
+        /// <summary>
+        /// метод который обновляет картинку у бомбы
+        /// </summary>
+        /// <returns></returns>
         public  string Update()
         {
             path = "../data/bomb/";

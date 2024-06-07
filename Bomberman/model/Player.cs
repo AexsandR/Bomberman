@@ -56,7 +56,9 @@ namespace Bomberman.model
             numberImg += speedAnimation;
             return path;
         }
-
+        /// <summary>
+        /// метод который фиксирует положение для установки бомбы
+        /// </summary>
         public void PutBomb()
         {
 

@@ -24,18 +24,20 @@ namespace Bomberman.model
                 this.center = "";
             createTimeFire = DateTime.Now;
         }
-        public bool CheckIntersection(double left, double top)
-        {
-            if (Math.Abs(left - this.left) < Setting.CellSize && Math.Abs(this.top - top) < Setting.CellSize)         
-                return true;
-            return false;
-        }
+        /// <summary>
+        /// метод который определяет закончился ли огонь
+        /// </summary>
+        /// <returns></returns>
         public bool FireOut()
         {
             if ((DateTime.Now - createTimeFire).Seconds  >= Setting.TimeFire)
                 return true;
             return false;
         }
+        /// <summary>
+        /// метод обновление картинок у объекта
+        /// </summary>
+        /// <returns></returns>
         public string Update()
         {
             path = $"../data/bomb/fire/{center}";

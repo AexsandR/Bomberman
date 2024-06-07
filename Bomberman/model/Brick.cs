@@ -17,6 +17,10 @@ namespace Bomberman.model
 
         public bool Exit { get; set; } = false;
         public bool ProcessDestruction { get; set; } = false;
+        /// <summary>
+        /// метод обновление картинок у объекта
+        /// </summary>
+        /// <returns></returns>
         public string Update()
         {
             if (numberImg > 8)

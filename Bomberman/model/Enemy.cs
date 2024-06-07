@@ -55,6 +55,9 @@ namespace Bomberman.model
             Diraction = "left";
             lastChangeDiraction = DateTime.Now;
         }
+        /// <summary>
+        /// меняет направление при столкновении
+        /// </summary>
         public void SwapDiraction()
         {
             int index = Array.IndexOf(diractions, Diraction);
@@ -63,6 +66,14 @@ namespace Bomberman.model
             Diraction = diractions[++index];
 
         }
+        /// <summary>
+        /// проверка свободных клеток
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="diraction"></param>
+        /// <returns></returns>
         public bool CheckFreeCell(char[][] map, int x, int y, string diraction)
         {
             if (diraction == "up" || diraction == "down") 
@@ -77,6 +88,10 @@ namespace Bomberman.model
             }
             return false;
         }
+        /// <summary>
+        /// метод котрый меняет рандомно направление в определенном промежутке времени
+        /// </summary>
+        /// <param name="map"></param>
         public void SwapRdnDiraction(char[][] map)
         {
             if ((DateTime.Now - lastChangeDiraction).Seconds >= timeChangeDiraction)

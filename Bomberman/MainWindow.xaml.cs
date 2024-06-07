@@ -225,7 +225,7 @@ namespace Bomberman
         {
             foreach (var enemy in enemyes)
             {
-                enemy.Key.move();
+                enemy.Key.Move();
                 enemy.Value.Source = new BitmapImage(new Uri(enemy.Key.Update(), UriKind.Relative));
                 if (enemy.Key.Diraction == "right")
                     enemy.Value.FlowDirection = FlowDirection.LeftToRight;
@@ -468,7 +468,7 @@ namespace Bomberman
         /// </summary>
         private void MovePlayer()
         {
-            player.move();
+            player.Move();
             playerImg.Source = new BitmapImage(new Uri(player.Update(), UriKind.Relative));
             intersectionPlayer();
             playerImg.Margin = new Thickness(player.Left, player.Top, player.Right, player.Bottom);
